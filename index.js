@@ -7,14 +7,8 @@ const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 
 app.use((req, res, next) => {
-  // Allow requests only from the specified IP address
-  const allowedOrigin = 'http://192.168.20.146:5173';
-
-  if (req.headers.origin === allowedOrigin) {
-    res.header('Access-Control-Allow-Origin', allowedOrigin);
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  }
-
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   next();
 });
 
